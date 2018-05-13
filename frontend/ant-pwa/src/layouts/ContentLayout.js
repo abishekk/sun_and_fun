@@ -21,7 +21,7 @@ class ContentLayout extends Component {
                             <Menu.Item key="3">nav 3</Menu.Item>
                         </Menu>
                     </Header>
-                    <Content style={{ padding: '0 50px', marginTop: 64 }}>
+                    <Content style={{ padding: '0 10px', marginTop: 64 }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
                             <Breadcrumb.Item>Home</Breadcrumb.Item>
                             <Breadcrumb.Item>List</Breadcrumb.Item>
@@ -30,9 +30,14 @@ class ContentLayout extends Component {
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <Button type="primary">Button</Button>
                         </div>
+                        <div style={{ background: '#aaa', padding: 24, minHeight: 200, position: 'relative' }}>
+                            <div style={{ position: 'absolute', bottom: 0, right: 0 }}>
+                                <Button type="dashed" >Button</Button>
+                            </div>
+                        </div>
                     </Content>
                     <Footer style={{ textAlign: 'center' }}>
-                        Ant Design ©2016 Created by Ant UED
+                        Sun and Fun ©2018. Created by Abi
                     </Footer>
                 </Layout>
             </div>

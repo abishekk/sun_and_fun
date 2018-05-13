@@ -1,5 +1,5 @@
-exports.theme_ovrrides = {
+exports.theme_overrides = {
     modifyVars: {
-        "@primary-color": "#22227A"
+        "@primary-color": "#000"
     },
 };
