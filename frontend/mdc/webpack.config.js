@@ -1,8 +1,14 @@
+const path = require('path');
+
 module.exports = [
   {
     entry: "./index.js",
     output: {
       filename: "bundle.js"
+    },
+    devServer: {
+      port: 9000,
+      historyApiFallback: true
     },
     module: {
       rules: [{
@@ -26,6 +32,10 @@ module.exports = [
       }, {
         test: /\.js$/,
         loader: 'babel-loader',
+        // exclude: /node_modules/,
+        options: {
+          babelrc: true
+        }
       },]
     },
   },
