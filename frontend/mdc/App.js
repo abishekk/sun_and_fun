@@ -1,6 +1,24 @@
 import React from 'react';
 import TopAppBar from './TopAppBar';
 import './app.scss';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TablePagination from '@material-ui/core/TablePagination';
+import TableRow from '@material-ui/core/TableRow';
+import TableSortLabel from '@material-ui/core/TableSortLabel';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FilterListIcon from '@material-ui/icons/FilterList';
+import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 export default class App extends React.Component {
   state = {
@@ -41,10 +59,13 @@ export default class App extends React.Component {
       <a href='#' className='material-icons mdc-top-app-bar__action-item' aria-label='Bookmark this page' alt='Bookmark this page'>bookmark</a>,
     ];
 
+    const LoginLink = props => <Link to="/login" {...props} />
+
     // Top App Bar Spec allows for only 1 action item with the short variant
     if (!isShort) {
       [].push.apply(actionItems, [
-        <a href='#' className='material-icons mdc-top-app-bar__action-item' aria-label='Download' alt='Download'>file_download</a>,
+        // <Button variant="raised" color="secondary" component={LoginLink}>Hello World</Button>,
+        <a href='/login' className='login-style-button' aria-label='Download' alt='Login'>Login</a>,
         <a href='#' className='material-icons mdc-top-app-bar__action-item' aria-label='Print this page' alt='Print this page'>print</a>,
       ]);
     }
