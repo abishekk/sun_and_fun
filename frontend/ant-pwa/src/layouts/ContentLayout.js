@@ -11,7 +11,7 @@ class ContentLayout extends Component {
                     <Header style={{ position: 'fixed', width: '100%' }}>
                         {/* <div className="logo"><img src={logo} style={{ height: 100, width: 100 }} alt="logo" /></div> */}
                         <Menu
-                            theme="dark"
+                            theme="teal"
                             mode="horizontal"
                             defaultSelectedKeys={['2']}
                             style={{ lineHeight: '64px' }}
