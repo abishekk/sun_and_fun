@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Button, Card, Checkbox, Col, Divider, Form, Row, Icon, Input} from 'antd';
+import FacebookLogin from 'react-facebook-login';
+import GoogleButton from 'react-google-button';
 
 const FormItem = Form.Item;
 
@@ -12,31 +14,47 @@ class Login extends Component {
           }
         });
     }
-    
+
     render() {
         const { getFieldDecorator }= this.props.form;
+        const componentClicked = null;
+        const responseFacebook = null;
         return (
             <div>
                 {/* <Card style={{width: "100%", backgroundColor: "#bcd"}} bordered={false} title={ */}
-                    <div>
-                        <Row justify="center">
-                            <Col push={8} span={16}>Sun and Fun Logo</Col>
-                        </Row>
-                        <Row type="flex" justify="center">
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4}>col-4</Col>
-      <Col span={4} style={{backgroundColor: "blue"}}>col-4</Col>
-    </Row>
-                        
-                        <Divider />
-                    </div>
+                    <Row type="flex" justify="center">
+                        <Col>
+                            <div  style={{width: "600px", minWidth: "600px", maxWidth: "900px", padding: "10px"}}>
+                                <b style={{fontFamily: "Oldenburg", cursive: true, fontSize: 32}}> THE NEW YORK TIMES </b>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center">
+                        <Col>
+                        <Divider style={{width: "900px", blockSize: "2px"}}/>
+                        </Col>
+                    </Row>
                 {/* }> */}
-                    <Row justify="center">
-                        <Col push={8} span={16}>
+                    <Row type="flex" justify="center">
+                        <Col> {/* push={8} span={16}> */}
+                            <div  style={{width: "600px", minWidth: "600px", maxWidth: "600px", padding: "10px"}}>
                             <div style={{fontSize: "22px"}}> Log In </div>
                             Don't have an accounts? <a href="/signup">Create one</a><br /><br />
-                            <Form onSubmit={this.handleSubmit} className="login-form">
+                            <div>
+                            <FacebookLogin
+                                size="small"
+                                appId="1088597931155576"
+                                autoLoad={true}
+                                fields="name,email,picture"
+                                onClick={componentClicked}
+                                callback={responseFacebook} style={{float: "left", height: "70px"}}/>
+                                <GoogleButton
+                                    style={{float: "right", height: "50px", width: "230px"}}
+                                    label="Be Cool!"
+                                    onClick={() => { console.log('Google button clicked') }}
+                            />
+                            </div>
+                            <Form onSubmit={this.handleSubmit} style={{width: "100%"}}>
                                 <FormItem>
                                 {getFieldDecorator('userName', {
                                     rules: [{ required: true, message: 'Please input your username!' }],
@@ -62,9 +80,27 @@ class Login extends Component {
                                 <Button type="primary" htmlType="submit" className="login-form-button">
                                     Log in
                                 </Button>
-                                <Divider> Or </Divider> <a href="">register now!</a>
                                 </FormItem>        
+                                <Divider> Or </Divider>
+                                <a href="">register now!</a>
+                                <p>
+                                <Checkbox style={{display: "inline"}}/> &nbsp; You agree to receive occasional updates and special offers for
+                                The New York Times's products and services. You may opt out or contact us anytime. </p>
+                                <p>
+                                By creating an account, you agree to the Terms of Service and acknowledge our Privacy Policy. </p>
                             </Form>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center">
+                        <Col>
+                            <Divider style={{width: "900px", blockSize: "2px"}}/>
+                        </Col>
+                    </Row>
+                    <Row type="flex" justify="center">
+                        <Col>
+                            <center> © 2018 The New York Times Company <br />
+                            Help Feedback </center>
                         </Col>
                     </Row>
                 {/* </Card> */}
